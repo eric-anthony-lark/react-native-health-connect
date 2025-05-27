@@ -15,8 +15,13 @@ export interface ReadHealthDataHistoryPermission {
   recordType: 'ReadHealthDataHistory';
 }
 
-export * from './records.types';
-export * from './results.types';
+export interface ReadHealthDataInBackgroundPermission {
+  accessType: 'read';
+  recordType: 'ReadHealthDataInBackground';
+}
+
 export * from './aggregate.types';
 export * from './changes.types';
 export * from './metadata.types';
+export * from './records.types';
+export * from './results.types';

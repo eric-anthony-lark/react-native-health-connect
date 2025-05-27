@@ -3,8 +3,9 @@ import { TurboModuleRegistry } from 'react-native';
 import type {
   HealthConnectRecord,
   Permission,
-  WriteExerciseRoutePermission,
   ReadHealthDataHistoryPermission,
+  ReadHealthDataInBackgroundPermission,
+  WriteExerciseRoutePermission,
 } from './types';
 import type { ExerciseRoute } from './types/base.types';
 
@@ -27,6 +28,7 @@ export interface Spec extends TurboModule {
     permissions: (
       | Permission
       | WriteExerciseRoutePermission
+      | ReadHealthDataInBackgroundPermission
       | ReadHealthDataHistoryPermission
     )[]
   ): Promise<Permission[]>;
