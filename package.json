@@ -26,8 +26,7 @@
     "release": "release-it",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build",
-    "postinstall": "yarn prepack"
+    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.4.2",
