@@ -39,11 +39,16 @@ class PermissionUtils {
     }
 
     suspend fun getGrantedPermissions(permissionController: PermissionController): WritableNativeArray {
-      return mapPermissionResult(permissionController.getGrantedPermissions())
+      return mapPermissionResult(permissionController.getGrantedPermissions());
     }
 
     fun mapPermissionResult(grantedPermissions: Set<String>): WritableNativeArray {
       return WritableNativeArray().apply {
+
+        if (PERMISSION_READ_HEALTH_DATA_IN_BACKGROUND in grantedPermissions) {
+          pushMap(ReactPermission(AccessType.READ, "ReadHealthDataInBackground").toReadableMap())
+        }
+        
         for ((recordType, recordClass) in reactRecordTypeToClassMap) {
           val readPermissionForRecord = HealthPermission.getReadPermission(recordClass)
           val writePermissionForRecord = HealthPermission.getWritePermission(recordClass)
