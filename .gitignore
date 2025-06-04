@@ -72,3 +72,4 @@ android/keystores/debug.keystore
 !debug.keystore
 
 .yarn
+.npmrc
